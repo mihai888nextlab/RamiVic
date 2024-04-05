@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
-import { auth } from "../Scripts/FirebaseConfig";
+interface Props {
+  username: string | null | undefined;
+}
 
-function DashMenu() {
-  const [user, setUser] = useState<string | null>();
-
-  useEffect(() => {});
+function DashMenu(props: Props) {
   return (
     <div className="dashMenu">
       <h1>Menu</h1>
       <div className="details">
         <br />
-        <h2>{auth.currentUser?.displayName}</h2>
+        <h2>{props.username}</h2>
       </div>
     </div>
   );

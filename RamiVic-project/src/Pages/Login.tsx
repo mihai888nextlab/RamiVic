@@ -1,13 +1,7 @@
 import { FormEvent, useState } from "react";
 import login from "../Scripts/Login";
-import { User } from "firebase/auth";
 
-interface Props {
-  authInst: User | null | undefined;
-  setAuthInst: React.Dispatch<React.SetStateAction<User | null | undefined>>;
-}
-
-function Login(props: Props) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -15,7 +9,7 @@ function Login(props: Props) {
   const handleData = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
-    login(email, password, setError, props.setAuthInst);
+    login(email, password, setError);
   };
 
   return (

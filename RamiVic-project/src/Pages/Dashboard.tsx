@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import DashMenu from "../Components/DashMenu";
 import AddApp from "../Scripts/AddApp";
 import getApps from "../Scripts/GetApps";
@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 import { auth } from "../Scripts/FirebaseConfig";
 
 function Dashboard() {
-  const [numeAplicatie, setNuemAplicatie] = useState("");
-  const [endpoints, setEndpoints] = useState("");
+  let nume = useRef<HTMLInputElement>(null);
+  let url = useRef<HTMLInputElement>(null);
+
   const [success, setSuccess] = useState(false);
+  const [username, setUsername] = useState(auth.currentUser?.displayName);
 
   const [aplicatii, setAplicatii] = useState<AppInstance[]>([]);
 
@@ -21,35 +23,30 @@ function Dashboard() {
 
   const handleAdd = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    AddApp(numeAplicatie, endpoints, setSuccess);
+    AddApp(nume.current?.value || "", url.current?.value || "", setSuccess);
   };
 
-  useEffect(() => {
-    reload();
-  }, [success]);
+  auth.onAuthStateChanged((user) => {
+    if (user?.displayName) {
+      setUsername(user.displayName);
+      console.log(user.displayName);
+    }
+  });
+
+  console.log(auth);
 
   return (
     <div>
       <h1>DEVELOPER Dashboard</h1>
 
       <div className="dash">
-        <DashMenu />
+        <DashMenu username={username} />
 
         <div className="adauga">
           <h2>Adauga Aplicatie</h2>
           <form onSubmit={(e) => handleAdd(e)}>
-            <input
-              type="text"
-              placeholder="Nume Aplicatie"
-              value={numeAplicatie}
-              onChange={(e) => setNuemAplicatie(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Url Aplicatie"
-              value={endpoints}
-              onChange={(e) => setEndpoints(e.target.value)}
-            />
+            <input type="text" placeholder="Nume Aplicatie" ref={nume} />
+            <input type="text" placeholder="Url Aplicatie" ref={url} />
 
             <button type="submit">SUBMIT</button>
           </form>
