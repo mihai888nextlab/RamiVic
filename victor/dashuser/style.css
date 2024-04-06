@@ -1,0 +1,67 @@
+nav {
+    background-color: #070F2B;
+    display: flex;
+    height: 15vh;
+    width: 100vw;
+    padding-left: 5vw;
+    gap: 40vw;
+}
+.butoane{
+    display: flex;
+    width: 20vw;
+    gap: 2vw;
+
+}
+.butoane a{
+    color: white;
+    font-size: 4vw;
+    font-weight:700;
+}
+body{
+    margin: 0;
+}
+.apps{
+    height: 40vh;
+    width: 80vw;
+    border-radius: 20px ;
+    border-style: solid;
+    border-color: transparent;
+    background-color: #535C91;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    margin-left: 10vw;
+    box-shadow: 1vh 1vh #070F2B ;
+}
+.apps input{
+    height: 10vh;
+    width:50vw;
+}
+.reportstatus {
+    
+    display: flex;
+    width:100%;
+    height: 10vh;
+    justify-content: space-between  ;
+}
+.Allgood{
+    background-color: green;
+}
+.Itsnotallgood{
+    background-color: yellow;
+}
+.FuckFuckFuckFuckFuck {
+    background-color: red   ;
+}
+.Allgood button{
+    border-radius: 10px;
+    width:50vw;        
+    height: 10vh;
+}
+.Itsnotallgood button{
+    width:50vw;
+    height: 10vh;
+}
+.FuckFuckFuckFuckFuck button{
+    width:50vw;
+    height: 10vh;
+}
