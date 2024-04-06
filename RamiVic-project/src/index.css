@@ -320,6 +320,21 @@ h1 {
   border-style: solid;
   border-width: 2px;
   border-color: #535c91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.site-box:hover{
+  background-color: #9290c3;
+  box-shadow: 0px 0px 30px 0px black;
+  
+  
+}
+.site-box img{
+  width: 200px;
 }
 footer {
   width: 100vw;
