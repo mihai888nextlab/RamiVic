@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import search from "../assets/search.png";
+import logo from "../assets/logo2.png"
 
 import google from "../assets/Google_2015_logo.svg (1).png";
 import emag from "../assets/2560px-Logo_eMAG.svg.png";
@@ -72,6 +73,8 @@ function Home() {
       </div>
       </div>
       <footer>
+        <img src={logo} alt="" />
+        <h3>© 2024 BusGo Technologies Inc.</h3>
 
       </footer>
       </div>

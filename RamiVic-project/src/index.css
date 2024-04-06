@@ -54,13 +54,27 @@ header nav ul {
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  width: 20vw;
 }
 
 header nav ul li a {
   color: white;
   text-decoration: none;
-  padding: 0 20px;
-  font-size: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  background-color: #9290c3;
+  border-radius: 20px;
+  font-weight: bold;
+}
+#loga{
+  background-color: transparent;
+  color: white;
+}
+#reg{
+  color: black;
 }
 
 .hero {
@@ -328,7 +342,7 @@ h1 {
   cursor: pointer;
 }
 .site-box:hover{
-  background-color: #9290c3;
+  background-color: #535c91;
   box-shadow: 0px 0px 30px 0px black;
   
   
@@ -341,6 +355,9 @@ footer {
   height: 20vh;
   background-color: #070f2b;
   margin-top: 10vh;
+}
+footer img{
+  width: 200px;
 }
 
 .adaugaForm {

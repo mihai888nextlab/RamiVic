@@ -10,10 +10,10 @@ function Header() {
         </Link>
         <ul>
           <li>
-            <Link to={"/register"}>Register</Link>
+            <Link id="loga" to={"/login"}>Log in</Link>
           </li>
           <li>
-            <Link to={"/login"}>Login</Link>
+            <Link id="reg" to={"/register"}>Register</Link>
           </li>
         </ul>
       </nav>
