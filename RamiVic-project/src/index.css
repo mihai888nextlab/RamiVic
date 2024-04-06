@@ -288,3 +288,16 @@ header nav ul li a {
   height: 25px;
   margin-right: 20px;
 }
+
+.google {
+  margin: 0 !important;
+  margin-bottom: 50px !important;
+  border: 0 !important;
+  background-color: transparent !important;
+  height: 50px !important;
+  padding: 0 !important;
+}
+
+.google img {
+  height: 50px;
+}

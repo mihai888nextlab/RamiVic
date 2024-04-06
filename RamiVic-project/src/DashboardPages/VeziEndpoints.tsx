@@ -19,7 +19,7 @@ function VeziEndpoints(props: Props) {
       <h3>
         Endpoints: <span onClick={() => props.reload()}>RELOAD</span>
       </h3>
-      {props.appDetails?.endpoint.map((endpoint) => (
+      {/* {props.appDetails?.endpoint.map((endpoint) => (
         <>
           <p key={endpoint}>{endpoint}</p>
           {props.codes.map((code) => (
@@ -36,7 +36,12 @@ function VeziEndpoints(props: Props) {
             </>
           ))}
         </>
-      ))}
+      ))} */}
+
+      {props.appDetails?.endpoint.map((endpoint) => {
+        let toShow: CodesInterface[] = [];
+        return <p>{endpoint}</p>;
+      })}
       <Link to="/dashboard">Back</Link>
     </div>
   );

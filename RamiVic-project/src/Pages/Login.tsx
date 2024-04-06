@@ -2,6 +2,8 @@ import { FormEvent, useState } from "react";
 import login from "../Scripts/Login";
 import Header from "../Components/Header";
 import { Link } from "react-router-dom";
+import google from "../assets/google.png";
+import GoogleLogin from "../Scripts/GoogleLogin";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,11 +35,15 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">SUBMIT</button>
-            <h2>
-              Don't have an account? <Link to={"/register"}>Register</Link>
-            </h2>
+            <button type="submit">Login</button>
           </form>
+
+          <button className="google" onClick={() => GoogleLogin()}>
+            <img src={google} />
+          </button>
+          <h2>
+            Don't have an account? <Link to={"/register"}>Register</Link>
+          </h2>
 
           {error && <p>{error}</p>}
         </div>

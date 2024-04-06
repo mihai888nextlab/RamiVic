@@ -21,7 +21,6 @@ const getCodes = async (
 
     const querySnapshot = await getDocs(q);
 
-    console.log(querySnapshot);
     querySnapshot.forEach((doc) => {
       codes.push({
         endpoint: doc.data().endpoint,
@@ -32,6 +31,7 @@ const getCodes = async (
   });
 
   setCodes(codes);
+  console.log(codes);
 };
 
 export default getCodes;
