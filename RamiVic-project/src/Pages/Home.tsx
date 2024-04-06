@@ -74,8 +74,7 @@ function Home() {
       </div>
       <footer>
         <img src={logo} alt="" />
-        <h3>© 2024 BusGo Technologies Inc.</h3>
-
+        <h4>© 2024 uApp? Technologies Inc.</h4>
       </footer>
       </div>
       

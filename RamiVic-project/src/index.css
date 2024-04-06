@@ -350,11 +350,18 @@ h1 {
 .site-box img{
   width: 200px;
 }
-footer {
+footer{
   width: 100vw;
   height: 20vh;
   background-color: #070f2b;
   margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer h4{
+  color: #D9D9D9;
 }
 footer img{
   width: 200px;
