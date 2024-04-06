@@ -3,7 +3,7 @@ import { db } from "./FirebaseConfig";
 
 interface Code {
   endpoint: string;
-  requests: { code: number; time: string }[];
+  requests: { code: number; time: number }[];
 }
 
 const getCodes = async (endpoints: string[], setCodes: (e: Code[]) => void) => {

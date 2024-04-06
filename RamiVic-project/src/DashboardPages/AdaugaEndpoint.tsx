@@ -11,9 +11,12 @@ function AdaugaEndpoint(props: Props) {
     <div className="adaugaForm">
       <form onSubmit={(e) => props.addEndpoint(e)}>
         <input type="text" placeholder="New Endpoint" ref={props.newEndpoint} />
+        <br />
         <button type="submit">Add Endpoint</button>
       </form>
-      <Link to="/dashboard">Back</Link>
+      <Link to="/dashboard" className="back">
+        Back
+      </Link>
     </div>
   );
 }

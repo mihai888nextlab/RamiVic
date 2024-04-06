@@ -11,7 +11,7 @@ import VeziEndpoints from "../DashboardPages/VeziEndpoints";
 
 interface CodesInterface {
   endpoint: string;
-  requests: { code: number; time: string }[];
+  requests: { code: number; time: number }[];
 }
 
 function AppDashboard() {

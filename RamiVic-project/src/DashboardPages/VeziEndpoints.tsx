@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import AppInstance from "../Types/AppInstance";
+import reload from "../assets/reload.png";
 
 interface CodesInterface {
   endpoint: string;
-  requests: { code: number; time: string }[];
+  requests: { code: number; time: number }[];
 }
 
 interface Props {
@@ -14,25 +15,36 @@ interface Props {
 
 function VeziEndpoints(props: Props) {
   return (
-    <div>
+    <div className="endpoints">
       <h3>
-        Endpoints: <span onClick={() => props.reload()}>RELOAD</span>
+        Endpoints:{" "}
+        <span onClick={() => props.reload()}>
+          <img src={reload} />
+        </span>
       </h3>
 
-      {props.codes.map((code) => (
-        <div>
-          <h4>{code.endpoint}</h4>
-          <ul>
-            {code.requests.map((req) => (
-              <li>
-                {req.code} - {req.time}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {props.codes.map((code) => {
+        let toShowTime = code.requests.sort((a, b) => {
+          return b.time - a.time;
+        });
 
-      <Link to="/dashboard">Back</Link>
+        return (
+          <div>
+            <h4>{code.endpoint}</h4>
+            <ul>
+              {toShowTime.map((req) => (
+                <li>
+                  {req.code} - {req.time}
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+
+      <Link to="/dashboard" className="back">
+        Back
+      </Link>
     </div>
   );
 }
