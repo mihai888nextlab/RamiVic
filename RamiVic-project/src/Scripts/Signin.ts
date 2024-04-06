@@ -11,9 +11,13 @@ const signIn = (
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(displayName);
-      updateProfile(user, { displayName: displayName }).catch((error) =>
-        console.log(error.message)
-      );
+      updateProfile(user, { displayName: displayName })
+        .then(() => {
+          console.log("User updated");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       window.location.href = "/dashboard";
     })
     .catch((error) => {

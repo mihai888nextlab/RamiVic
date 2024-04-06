@@ -1,21 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --color1: #9290c3;
+  --color2: #535c91;
+  --color3: #1b1a55;
+  --color4: #070f2b;
+
+  font-family: "Inter", sans-serif;
 }
 
 body {
   height: 100vh;
 }
 
+header {
+  background-color: var(--color4);
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+header nav {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  height: 100%;
+}
+
+header nav img {
+  height: 100%;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0 20px;
+  font-size: 30px;
+}
+
+.hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hero h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.hero button {
+  background-color: transparent;
+  border: none;
+}
+
+.hero button img {
+  height: 50px;
+  cursor: pointer;
+}
+
+.hero .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hero .box input {
+  height: 30px;
+  width: 500px;
+  border-radius: 20px;
+  border: 2px solid var(--color1);
+  background-color: #d9d9d9;
+  font-size: 15px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.register {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registerStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: var(--color3);
+  color: white;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 100px 0 var(--color3);
+}
+
+.registerStyle form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.registerStyle h1 {
+  margin-bottom: 50px;
+}
+
+.registerStyle input {
+  height: 30px;
+  width: 300px;
+  border-radius: 10px;
+  border: 2px solid var(--color1);
+  background-color: #d9d9d9;
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.registerStyle button {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid var(--color1);
+  background-color: var(--color1);
+  font-size: 15px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.adauga {
+  width: 75vw;
+  padding: 20px;
+}
+
+.adauga h1 {
+  text-align: center;
+}
+
+.adaugaApp {
+  margin-top: 50px;
+}
+
+.adaugaApp h2 {
+  margin-bottom: 20px;
+}
+
+.adaugaApp input {
+  height: 20px;
+  width: 300px;
+  border-radius: 10px;
+  border: 2px solid var(--color1);
+  background-color: #d9d9d9;
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.adaugaApp button {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid var(--color1);
+  background-color: var(--color1);
+  font-size: 15px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.aplicatii h2 {
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.aplicatii span img {
+  height: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.aplicatii .app {
+  background-color: var(--color2);
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s all;
+}
+
+.aplicatii .app:hover {
+  box-shadow: 0 0 100px 0 var(--color2);
+}
+
+.aplicatii .app h3 {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.aplicatiiList {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-gap: 5%;
+}
+
+.aplicatiiList a {
+  text-decoration: none;
+}
+
 .dashMenu {
-  background-color: blueviolet;
+  background-color: var(--color2);
   width: 25vw;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: left;
   flex-direction: column;
+  padding: 20px;
 }
 
 .dash {
   display: flex;
+}
+
+.dashMenu h2 {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.dashMenu h2 img {
+  height: 30px;
+  margin-right: 20px;
+}
+
+.dashMenu h3 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.dashMenu ul {
+  list-style: none;
+}
+
+.dashMenu ul li {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.dashMenu ul li img {
+  height: 25px;
+  margin-right: 20px;
 }

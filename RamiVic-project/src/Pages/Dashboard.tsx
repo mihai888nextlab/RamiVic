@@ -1,23 +1,25 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import DashMenu from "../Components/DashMenu";
 import AddApp from "../Scripts/AddApp";
 import getApps from "../Scripts/GetApps";
 import AppInstance from "../Types/AppInstance";
-import { Link } from "react-router-dom";
 import { auth } from "../Scripts/FirebaseConfig";
+import AdaugaApp from "../DashboardPages/AdaugaApp";
+import VeziAplicatii from "../DashboardPages/VeziAplicatii";
 
 function Dashboard() {
   let nume = useRef<HTMLInputElement>(null);
   let url = useRef<HTMLInputElement>(null);
 
+  const [selectedPage, setSelectedPage] = useState("AdaugaApp");
+
   const [success, setSuccess] = useState(false);
-  const [username, setUsername] = useState(auth.currentUser?.displayName);
 
   const [aplicatii, setAplicatii] = useState<AppInstance[]>([]);
 
-  const reload = () => {
+  const reload = async () => {
     if (auth.currentUser) {
-      getApps(setAplicatii);
+      await getApps(setAplicatii);
     }
   };
 
@@ -26,52 +28,30 @@ function Dashboard() {
     AddApp(nume.current?.value || "", url.current?.value || "", setSuccess);
   };
 
-  auth.onAuthStateChanged((user) => {
-    if (user?.displayName) {
-      setUsername(user.displayName);
-      console.log(user.displayName);
-    }
-  });
-
-  console.log(auth);
-
   return (
     <div>
-      <h1>DEVELOPER Dashboard</h1>
-
       <div className="dash">
-        <DashMenu username={username} />
+        <DashMenu
+          username={auth.currentUser?.displayName}
+          setPage={setSelectedPage}
+        />
 
         <div className="adauga">
-          <h2>Adauga Aplicatie</h2>
-          <form onSubmit={(e) => handleAdd(e)}>
-            <input type="text" placeholder="Nume Aplicatie" ref={nume} />
-            <input type="text" placeholder="Url Aplicatie" ref={url} />
+          <h1>Developer Dashboard</h1>
 
-            <button type="submit">SUBMIT</button>
-          </form>
-
-          {success ? <p>Aplicatia a fost adaugata cu succes</p> : null}
-
-          <br />
-          <br />
-
-          <div className="aplicatii">
-            <h2>
-              Aplicatiile Tale: <span onClick={() => reload()}>REINCARCA</span>
-            </h2>
-            <br />
-            {aplicatii.map((app) => (
-              <div key={app.id}>
-                <Link to={"/dashboard/" + app.id}>
-                  <div key={app.id} className="app">
-                    <h3>{app.name}</h3>
-                  </div>
-                </Link>
-                <br />
-              </div>
-            ))}
-          </div>
+          {selectedPage === "AdaugaApp" ? (
+            <AdaugaApp
+              handleAdd={handleAdd}
+              url={url}
+              nume={nume}
+              success={success}
+            ></AdaugaApp>
+          ) : selectedPage === "VeziAplicatii" ? (
+            <VeziAplicatii
+              aplicatii={aplicatii}
+              reload={reload}
+            ></VeziAplicatii>
+          ) : null}
         </div>
       </div>
     </div>
