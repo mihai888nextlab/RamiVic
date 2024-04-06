@@ -6,6 +6,7 @@ const getAppById = async (
   id: string,
   setAppDetails: React.Dispatch<React.SetStateAction<AppInstance | undefined>>
 ) => {
+  console.log("test");
   const docRef = doc(db, "Endpoints", id);
   const docSnap = await getDoc(docRef);
 

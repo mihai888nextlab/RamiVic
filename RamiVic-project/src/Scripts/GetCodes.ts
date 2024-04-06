@@ -25,8 +25,28 @@ const getCodes = async (endpoints: string[], setCodes: (e: Code[]) => void) => {
     });
   });
 
-  setCodes(codes);
   console.log(codes);
+  setCodes(codes);
+
+  // codes.forEach((code) => {
+  //   let req = code.requests.sort((a, b) => {
+  //     return b.time - a.time;
+  //   });
+
+  //   let index = 0;
+  //   let stable = 0;
+
+  //   req.forEach((r) => {
+  //     if (index < 10) {
+  //       if (r.code === 200 || r.code === 302) {
+  //         stable++;
+  //       }
+  //     }
+  //     index++;
+  //   });
+
+  //   console.log(code.endpoint, stable);
+  // });
 };
 
 export default getCodes;

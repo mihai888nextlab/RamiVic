@@ -18,6 +18,7 @@ function AppDashboard() {
   let id = useParams();
   const [appDetails, setAppDetails] = useState<AppInstance>();
   const [codes, setCodes] = useState<CodesInterface[]>([]);
+  const [success, setSuccess] = useState(false);
 
   const [page, setPage] = useState("AdaugaEndpoint");
 
@@ -33,10 +34,11 @@ function AppDashboard() {
     addNewEndpoint(
       id.id || "",
       appDetails?.endpoint || [],
-      newEndpoint.current?.value || ""
+      newEndpoint.current?.value || "",
+      setSuccess
     );
     newEndpoint.current!.value = "";
-    getAppById(id.id || "", setAppDetails);
+    //getAppById(id.id || "", setAppDetails);
     getCodes(appDetails?.endpoint || [], setCodes);
   };
 
@@ -59,6 +61,7 @@ function AppDashboard() {
             <AdaugaEndpoint
               addEndpoint={addEndpoint}
               newEndpoint={newEndpoint}
+              success={success}
             ></AdaugaEndpoint>
           ) : page === "VeziEndpoint" ? (
             <VeziEndpoints
