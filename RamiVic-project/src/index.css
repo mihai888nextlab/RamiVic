@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap');
 
 * {
   margin: 0;
@@ -63,10 +64,11 @@ header nav ul li a {
 }
 
 .hero {
+  margin-top: 15vh;
   height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
 }
 
@@ -300,4 +302,29 @@ header nav ul li a {
 
 .google img {
   height: 50px;
+}
+h1{
+  font-family: "Open Sans", sans-serif;
+}
+.sites{
+  margin-top: 5vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+}
+.site-box{
+  width: 20vw;
+  height: 20vh;
+  background-color: #fff;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #535c91;
+}
+footer{
+  width: 100vw;
+  height: 20vh;
+  background-color: #070f2b;
+  margin-top: 10vh;
 }
