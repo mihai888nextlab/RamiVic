@@ -3,14 +3,10 @@ import { db } from "./FirebaseConfig";
 
 interface Code {
   endpoint: string;
-  time: string;
-  code: number;
+  requests: { code: number; time: string }[];
 }
 
-const getCodes = async (
-  endpoints: string[],
-  setCodes: React.Dispatch<React.SetStateAction<Code[]>>
-) => {
+const getCodes = async (endpoints: string[], setCodes: (e: Code[]) => void) => {
   const codes: Code[] = [];
 
   endpoints.forEach(async (endpoint) => {
@@ -24,8 +20,7 @@ const getCodes = async (
     querySnapshot.forEach((doc) => {
       codes.push({
         endpoint: doc.data().endpoint,
-        time: doc.data().time,
-        code: doc.data().code,
+        requests: doc.data().requests,
       });
     });
   });
