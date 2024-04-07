@@ -4,6 +4,7 @@ import Signin from "./Pages/Signin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppDashboard from "./Pages/AppDashboard";
 import Home from "./Pages/Home";
+import DashboardFree from "./Pages/DashboardFree";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/register" element={<Signin />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/dashboard/:id" element={<AppDashboard />}></Route>
+          <Route path="/public-dashboard" element={<DashboardFree />}></Route>
         </Routes>
       </BrowserRouter>
     </>

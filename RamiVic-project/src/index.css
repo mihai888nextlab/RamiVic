@@ -17,6 +17,7 @@
 
 body {
   height: 100vh;
+  overflow-x: hidden;
 }
 
 header {
@@ -60,20 +61,17 @@ header nav ul {
 header nav ul li a {
   color: white;
   text-decoration: none;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 20px;
   font-size: 20px;
   background-color: #9290c3;
-  border-radius: 20px;
+  border-radius: 10px;
   font-weight: bold;
 }
-#loga{
+#loga {
   background-color: transparent;
   color: white;
 }
-#reg{
+#reg {
   color: black;
 }
 
@@ -341,16 +339,14 @@ h1 {
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
-.site-box:hover{
+.site-box:hover {
   background-color: #535c91;
   box-shadow: 0px 0px 30px 0px black;
-  
-  
 }
-.site-box img{
+.site-box img {
   width: 200px;
 }
-footer{
+footer {
   width: 100vw;
   height: 20vh;
   background-color: #070f2b;
@@ -360,10 +356,10 @@ footer{
   align-items: center;
   flex-direction: column;
 }
-footer h4{
-  color: #D9D9D9;
+footer h4 {
+  color: #d9d9d9;
 }
-footer img{
+footer img {
   width: 200px;
 }
 
@@ -416,4 +412,61 @@ footer img{
 
 .endpoints h4 {
   margin-bottom: 20px;
+}
+
+.endpoints table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.endpoints table thead tr td {
+  background-color: var(--color2);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--color1);
+}
+
+.endpoints table thead tr td:first-child {
+  border-top-left-radius: 10px;
+}
+
+.endpoints table thead tr td:last-child {
+  border-top-right-radius: 10px;
+}
+
+.endpoints table tbody tr td {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--color1);
+}
+
+.red {
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.yellow {
+  height: 20px;
+  width: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.green {
+  height: 20px;
+  width: 20px;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.together {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

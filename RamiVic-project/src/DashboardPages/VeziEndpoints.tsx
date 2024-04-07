@@ -14,8 +14,6 @@ interface Props {
 }
 
 function VeziEndpoints(props: Props) {
-  // const [stable, setStable] = useState(0);
-
   return (
     <div className="endpoints">
       <h3>
@@ -58,7 +56,9 @@ function VeziEndpoints(props: Props) {
             <td>Stare</td>
             <td>Ultimul Status</td>
           </tr>
+        </thead>
 
+        <tbody>
           {props.codes?.map((code) => {
             let toShowTime = code.requests.sort((a, b) => {
               return b.time - a.time;
@@ -79,13 +79,26 @@ function VeziEndpoints(props: Props) {
               <tr key={code.endpoint}>
                 <td>{code.endpoint}</td>
                 <td>
-                  {stable == 0 ? "Down" : stable == 10 ? "Stable" : "Unstable"}
+                  <div className="together">
+                    {stable == 0 ? (
+                      <div className="red"></div>
+                    ) : stable == 10 ? (
+                      <div className="green"></div>
+                    ) : (
+                      <div className="yellow"></div>
+                    )}
+                    {stable == 0
+                      ? "Down"
+                      : stable == 10
+                      ? "Stable"
+                      : "Unstable"}
+                  </div>
                 </td>
                 <td>{toShowTime[0].code}</td>
               </tr>
             );
           })}
-        </thead>
+        </tbody>
       </table>
 
       <Link to="/dashboard" className="back">
