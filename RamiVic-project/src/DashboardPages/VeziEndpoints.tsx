@@ -135,7 +135,7 @@ function VeziEndpoints(props: Props) {
               </>
             ) : ma == 0 ? (
               <>
-                <div className="Red"></div> Down
+                <div className="red"></div> Down
               </>
             ) : (
               <>

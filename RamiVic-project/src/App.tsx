@@ -7,8 +7,15 @@ import AppDashboard from "./Pages/AppDashboard";
 import Home from "./Pages/Home";
 import DashboardFree from "./Pages/DashboardFree";
 import AppDashboardFree from "./Pages/AppDashboardFree";
+import { useEffect } from "react";
+
+import emailjs from "@emailjs/browser";
 
 function App() {
+  useEffect(() => {
+    emailjs.init("_LhA66uglW7HfJArr");
+  });
+
   return (
     <>
       <BrowserRouter>
@@ -23,6 +30,7 @@ function App() {
             path="/public-dashboard/:id"
             element={<AppDashboardFree />}
           ></Route>
+          {/* <Route path="/test" element={<Tets />}></Route> */}
         </Routes>
       </BrowserRouter>
     </>

@@ -1,6 +1,8 @@
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "./FirebaseConfig";
 
+import emailjs from "@emailjs/browser";
+
 const AddBug = (
   bug_desc: string,
   appId: string,
@@ -12,6 +14,19 @@ const AddBug = (
     fixed: false,
   }).then(async () => {
     setSuccess(true);
+
+    var templateParaams = {
+      email: "mihai.gorunescu.jr@gmail.com",
+    };
+
+    emailjs.send("service_avqkg5j", "template_oskegj8", templateParaams).then(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
   });
 };
 
