@@ -1,7 +1,11 @@
 {
   "dependencies": {
     "@lordicon/react": "^1.6.0",
-    "firebase": "^10.10.0"
+    "@react-email/render": "^0.0.12",
+    "firebase": "^10.10.0",
+    "mailersend": "^2.2.0",
+    "nodemailer": "^6.9.13",
+    "smtp": "^0.1.4"
   },
   "devDependencies": {
     "react-router-dom": "^6.22.3"

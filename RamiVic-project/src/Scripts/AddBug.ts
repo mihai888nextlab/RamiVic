@@ -10,7 +10,7 @@ const AddBug = (
     desc: bug_desc,
     appId: appId,
     fixed: false,
-  }).then(() => {
+  }).then(async () => {
     setSuccess(true);
   });
 };

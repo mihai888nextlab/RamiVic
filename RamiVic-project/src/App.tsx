@@ -1,3 +1,4 @@
+import "./index2.css";
 import Dashboard from "./Pages/Dashboard";
 import Login from "./Pages/Login";
 import Signin from "./Pages/Signin";

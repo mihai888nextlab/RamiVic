@@ -37,21 +37,23 @@ function AppDashboardFree() {
 
   return (
     <div>
-      <div className="dash">
+      <div className="dashFree">
         <div className="adauga">
           <h1>{appDetails?.name}</h1>
           {page === "VeziEndpoints" ? (
-            <VeziEndpoints
-              reload={reload}
-              appDetails={appDetails}
-              codes={codes}
-            ></VeziEndpoints>
+            <>
+              <VeziEndpoints
+                reload={reload}
+                appDetails={appDetails}
+                codes={codes}
+              ></VeziEndpoints>
+              <button className="report" onClick={() => setPage("bug")}>
+                Raporteaza un bug
+              </button>
+            </>
           ) : (
             <BugPopup setPage={setPage} addBug={addBug} success={success} />
           )}
-          <button className="report" onClick={() => setPage("bug")}>
-            Raporteaza un bug
-          </button>
         </div>
       </div>
     </div>

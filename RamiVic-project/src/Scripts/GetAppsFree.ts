@@ -20,6 +20,7 @@ const getAppsFree = async (
   });
 
   setAplicatii(apps);
+  console.log(apps);
 };
 
 export default getAppsFree;

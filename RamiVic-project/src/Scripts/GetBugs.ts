@@ -26,6 +26,7 @@ const GetBugs = async (
     });
   });
 
+  console.log(bugs);
   setBugs(bugs);
 };
 
