@@ -42,7 +42,7 @@ function AppDashboardFree() {
           ) : (
             <BugPopup setPage={setPage} />
           )}
-          <button onClick={() => setPage("bug")}>Raporteaza un bug</button>
+          <button className="report" onClick={() => setPage("bug")}>Raporteaza un bug</button>
         </div>
       </div>
     </div>
