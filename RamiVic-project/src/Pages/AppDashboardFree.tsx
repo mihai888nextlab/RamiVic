@@ -6,10 +6,18 @@ import getCodes from "../Scripts/GetCodes";
 import VeziEndpoints from "../DashboardPages/VeziEndpoints";
 import BugPopup from "../DashboardPages/BugPopup";
 import AddBug from "../Scripts/AddBug";
+import GetBugs from "../Scripts/GetBugs";
 
 interface CodesInterface {
   endpoint: string;
   requests: { code: number; time: number }[];
+}
+
+interface Bug {
+  id: string;
+  desc: string;
+  appId: string;
+  fixed: boolean;
 }
 
 function AppDashboardFree() {
@@ -20,6 +28,8 @@ function AppDashboardFree() {
   const [page, setPage] = useState("VeziEndpoints");
   const [success, setSuccess] = useState(false);
 
+  const [bugs, setBugs] = useState<Bug[]>([]); // [1
+
   const addBug = (e: FormEvent<HTMLFormElement>, desc: string | undefined) => {
     e.preventDefault();
     AddBug(desc || "", appDetails?.id || "", setSuccess);
@@ -28,6 +38,7 @@ function AppDashboardFree() {
   const reload = async () => {
     await getAppById(id.id || "", setAppDetails);
     await getCodes(appDetails?.endpoint || [], setCodes);
+    await GetBugs(id.id || "", setBugs);
   };
 
   useEffect(() => {
@@ -43,6 +54,7 @@ function AppDashboardFree() {
           {page === "VeziEndpoints" ? (
             <>
               <VeziEndpoints
+                bugs={bugs}
                 reload={reload}
                 appDetails={appDetails}
                 codes={codes}

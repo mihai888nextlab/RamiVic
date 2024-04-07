@@ -7,13 +7,25 @@ interface CodesInterface {
   requests: { code: number; time: number }[];
 }
 
+interface Bug {
+  id: string;
+  desc: string;
+  appId: string;
+  fixed: boolean;
+}
+
 interface Props {
   reload: () => void;
   appDetails: AppInstance | undefined;
   codes: CodesInterface[];
+  bugs: Bug[];
 }
 
 function VeziEndpoints(props: Props) {
+  let ma = 0;
+  let index2 = 0;
+  let dif = 0;
+
   return (
     <div className="endpoints">
       <h3>
@@ -75,6 +87,9 @@ function VeziEndpoints(props: Props) {
               index++;
             });
 
+            if (stable == 10) ma++;
+            index2++;
+
             return (
               <tr key={code.endpoint}>
                 <td>{code.endpoint}</td>
@@ -100,6 +115,47 @@ function VeziEndpoints(props: Props) {
           })}
         </tbody>
       </table>
+
+      {props.bugs.length > 0 && (
+        <>
+          {props.bugs.map((bug) => {
+            if (bug.fixed == true) return null;
+            dif--;
+          })}
+        </>
+      )}
+
+      {index2 != 0 && dif == 0 && (
+        <h1 className="over">
+          The overall app is:
+          <span className="together">
+            {index2 == ma ? (
+              <>
+                <div className="green"></div> Stable
+              </>
+            ) : ma == 0 ? (
+              <>
+                <div className="Red"></div> Down
+              </>
+            ) : (
+              <>
+                <div className="yellow"></div> Unstable
+              </>
+            )}
+          </span>
+        </h1>
+      )}
+
+      {dif != 0 && (
+        <h1 className="over">
+          The overall app is:
+          <span className="together">
+            <>
+              <div className="yellow"></div> Unstable
+            </>
+          </span>
+        </h1>
+      )}
 
       <Link to="/dashboard" className="back">
         Back

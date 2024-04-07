@@ -37,6 +37,7 @@ function AppDashboard() {
   const reload = async () => {
     await getAppById(id.id || "", setAppDetails);
     await getCodes(appDetails?.endpoint || [], setCodes);
+    await GetBugs(id.id || "", setBugs);
   };
 
   const bugReload = async () => {
@@ -79,6 +80,7 @@ function AppDashboard() {
             ></AdaugaEndpoint>
           ) : page === "VeziEndpoint" ? (
             <VeziEndpoints
+              bugs={bugs}
               reload={reload}
               appDetails={appDetails}
               codes={codes}
