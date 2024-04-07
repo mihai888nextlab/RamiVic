@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppDashboard from "./Pages/AppDashboard";
 import Home from "./Pages/Home";
 import DashboardFree from "./Pages/DashboardFree";
+import AppDashboardFree from "./Pages/AppDashboardFree";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/dashboard/:id" element={<AppDashboard />}></Route>
           <Route path="/public-dashboard" element={<DashboardFree />}></Route>
+          <Route
+            path="/public-dashboard/:id"
+            element={<AppDashboardFree />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
