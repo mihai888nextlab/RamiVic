@@ -470,13 +470,5 @@ footer img {
   align-items: center;
   justify-content: center;
 }
-.report{
-  border-radius: 20px;
-  background-color: #9290c3;
-  transition: 0.3s ease-in-out;
-  padding:0.3em 1.2em;
-}
-.report:hover{
-  background-color: #1b1a55;
-}
+
 
