@@ -8,10 +8,19 @@ import AdaugaEndpoint from "../DashboardPages/AdaugaEndpoint";
 import DashAppMenu from "../Components/DashAppMenu";
 import { auth } from "../Scripts/FirebaseConfig";
 import VeziEndpoints from "../DashboardPages/VeziEndpoints";
+import SeeBugs from "../DashboardPages/SeeBugs";
+import GetBugs from "../Scripts/GetBugs";
 
 interface CodesInterface {
   endpoint: string;
   requests: { code: number; time: number }[];
+}
+
+interface Bug {
+  id: string;
+  desc: string;
+  appId: string;
+  fixed: boolean;
 }
 
 function AppDashboard() {
@@ -21,12 +30,17 @@ function AppDashboard() {
   const [success, setSuccess] = useState(false);
 
   const [page, setPage] = useState("AdaugaEndpoint");
+  const [bugs, setBugs] = useState<Bug[]>([]); // [1
 
   let newEndpoint = useRef<HTMLInputElement>(null);
 
   const reload = async () => {
     await getAppById(id.id || "", setAppDetails);
     await getCodes(appDetails?.endpoint || [], setCodes);
+  };
+
+  const bugReload = async () => {
+    await GetBugs(id.id || "", setBugs);
   };
 
   const addEndpoint = (e: FormEvent<HTMLFormElement>) => {
@@ -69,6 +83,8 @@ function AppDashboard() {
               appDetails={appDetails}
               codes={codes}
             ></VeziEndpoints>
+          ) : page == "Bugs" ? (
+            <SeeBugs reload={bugReload} bugs={bugs} />
           ) : null}
         </div>
       </div>

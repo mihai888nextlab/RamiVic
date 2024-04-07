@@ -2,6 +2,7 @@ import signOut from "../Scripts/SignOut";
 import add from "../assets/add.png";
 import view from "../assets/eye.png";
 import logout from "../assets/logout.png";
+import bug from "../assets/bug.gif";
 
 interface Props {
   username: string | null | undefined;
@@ -23,6 +24,10 @@ function DashAppMenu(props: Props) {
         </li>
         <li onClick={() => props.setPage("VeziEndpoint")}>
           <img src={view} /> Vezi Endpointuri (+ status)
+        </li>
+        <li onClick={() => props.setPage("Bugs")}>
+          <img src={bug} />
+          Vezi Buguri
         </li>
       </ul>
     </div>

@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import AppInstance from "../Types/AppInstance";
 import getAppById from "../Scripts/GetAppById";
 import getCodes from "../Scripts/GetCodes";
 import VeziEndpoints from "../DashboardPages/VeziEndpoints";
 import BugPopup from "../DashboardPages/BugPopup";
+import AddBug from "../Scripts/AddBug";
 
 interface CodesInterface {
   endpoint: string;
@@ -17,6 +18,12 @@ function AppDashboardFree() {
   const [codes, setCodes] = useState<CodesInterface[]>([]);
 
   const [page, setPage] = useState("VeziEndpoints");
+  const [success, setSuccess] = useState(false);
+
+  const addBug = (e: FormEvent<HTMLFormElement>, desc: string | undefined) => {
+    e.preventDefault();
+    AddBug(desc || "", appDetails?.id || "", setSuccess);
+  };
 
   const reload = async () => {
     await getAppById(id.id || "", setAppDetails);
@@ -40,9 +47,11 @@ function AppDashboardFree() {
               codes={codes}
             ></VeziEndpoints>
           ) : (
-            <BugPopup setPage={setPage} />
+            <BugPopup setPage={setPage} addBug={addBug} success={success} />
           )}
-          <button className="report" onClick={() => setPage("bug")}>Raporteaza un bug</button>
+          <button className="report" onClick={() => setPage("bug")}>
+            Raporteaza un bug
+          </button>
         </div>
       </div>
     </div>
